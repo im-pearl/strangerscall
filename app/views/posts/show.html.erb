@@ -15,7 +15,12 @@
   <%= @post.user_icon %>
 </p>
 
-<%= link_to "깨워줄게요", post_response_path(@post), method: :post %>
+<% if not current_user.is_responsed?(@post) %>
+  <%= link_to "깨워줄게요", post_response_path(@post), method: :post %>
+<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if current_user.id == @post.user_id_id %>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
+
 <%= link_to 'Back', posts_path %>

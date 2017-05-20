@@ -2,6 +2,10 @@
 
 <h1>Listing Posts</h1>
 
+<% if user_signed_in? %>
+<%= link_to 'New Post', new_post_path %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -19,16 +23,15 @@
         <td><%= post.alarm %></td>
         <td><%= post.user_icon %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <% if not current_user.is_responsed?(post) %>
+        <td><%= link_to "깨워줄게요", post_response_path(post), method: :post %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
-<% end %>
 
 

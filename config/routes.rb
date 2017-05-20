@@ -58,6 +58,6 @@ Rails.application.routes.draw do
   root to: "posts#index"
   
   resources :posts, except: [:show] do
-    post "/response", to: "responses#willwake"
+    post "/response", to: "responses#will_wake"
   end
 end
