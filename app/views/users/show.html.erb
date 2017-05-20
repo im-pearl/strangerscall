@@ -9,4 +9,12 @@
     <br>
 <% end %>
 
+<br>
+
+<% @responser_posts.each do |post| %>
+  <%= link_to post.context,  post_path(post) %>
+  <%= post.alarm.strftime("%Y %b %d %H:%M") %>
+    <br>
+<% end %>
+
 <%= link_to 'Back', posts_path %>

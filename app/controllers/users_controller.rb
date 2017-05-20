@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_posts = @user.posts
+    @responses = @user.responses.pluck(:post_id)
+    @responser_posts = Post.where(id: @responses)
   end
   def destroy
     @post.destroy
