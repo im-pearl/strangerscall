@@ -24,7 +24,7 @@
         <td><%= post.user_icon %></td>
         <td><%= link_to 'Show', post %></td>
         
-        <% if not current_user.is_responsed?(post) %>
+        <% if current_user and not current_user.is_responsed?(post) %>
         <td><%= link_to "깨워줄게요", post_response_path(post), method: :post %></td>
         <% end %>
         
