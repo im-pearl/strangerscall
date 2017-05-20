@@ -56,4 +56,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root to: "posts#index"
+  
+  resources :posts, except: [:show] do
+    post "/response", to: "responses#willwake"
+  end
 end

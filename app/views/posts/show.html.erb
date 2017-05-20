@@ -15,5 +15,7 @@
   <%= @post.user_icon %>
 </p>
 
+<%= link_to "깨워줄게요", post_response_path(@post), method: :post %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
