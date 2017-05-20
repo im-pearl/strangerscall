@@ -1,0 +1,12 @@
+<h1> <%= @user.email %> </h1>
+<p> <%= @user.remember_created_at %> </p>
+
+
+<% @user_posts.each do |post| %>
+  <%= link_to post.context,  post_path(post) %>
+  <%= post.alarm.strftime("%Y %b %d %H:%M") %>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+<% end %>
+
+<%= link_to 'Back', posts_path %>
