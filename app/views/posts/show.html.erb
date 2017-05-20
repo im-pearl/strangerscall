@@ -19,7 +19,7 @@
   <%= link_to "깨워줄게요", post_response_path(@post), method: :post %>
 <% end %>
 
-<% if current_user.id == @post.user_id_id %>
+<% if current_user.id == @post.user_id %>
   <%= link_to 'Edit', edit_post_path(@post) %>
 <% end %>
 

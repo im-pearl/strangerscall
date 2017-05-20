@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520143147) do
+ActiveRecord::Schema.define(version: 20170520164206) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id_id"
+    t.integer  "user_id"
     t.string   "context"
     t.time     "alarm"
     t.integer  "status"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170520143147) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "posts", ["user_id_id"], name: "index_posts_on_user_id_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "responses", force: :cascade do |t|
     t.integer  "user_id"
