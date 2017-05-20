@@ -16,21 +16,46 @@
     </tr>
   </thead>
 
-  <tbody>
+ <tbody>
+
+<% nowtime=Time.now+32400 %>
+
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.context %></td>
-        <td><%= post.alarm %></td>
-        <td><%= post.user_icon %></td>
-        <td><%= link_to 'Show', post %></td>
-        
-        <% if current_user and not current_user.is_responsed?(post) %>
-        <td><%= link_to "깨워줄게요", post_response_path(post), method: :post %></td>
-        <% end %>
-        
-      </tr>
+  
+      
+      <%if nowtime <post.alarm+32400+300  %>
+      <%if nowtime+21600 > post.alarm+32400 %> 
+          <% if nowtime >post.alarm+32400 %>
+              <tr class="late">
+                <td> <%= post.context %></td>
+                 <td><%= post.alarm.strftime("%Y %b %d %H:%M") %></td>
+                 <td><%= post.user_icon %></td>
+                <td><%= link_to 'Show', post %></td>
+                
+                <% if current_user and not current_user.is_responsed?(post) %>
+                <td><%= link_to "깨워줄게요", post_response_path(post), method: :post %></td>
+                <% end %>
+              </tr>
+            <% else %>
+                <tr>
+                  <td><%= post.context %></td>
+                  <td><%= post.alarm.strftime("%Y %b %d %H:%M") %></td>
+                  <td><%= post.user_icon %></td>
+                  <td><%= link_to 'Show', post %></td>
+                  
+                  <% if current_user and not current_user.is_responsed?(post) %>
+                  <td><%= link_to "깨워줄게요", post_response_path(post), method: :post %></td>
+                  <% end %>
+                </tr>
+      <% end %>
+      <% end %>
     <% end %>
+    <%end %>
+
+    
   </tbody>
+
+
 </table>
 
 

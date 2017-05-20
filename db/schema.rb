@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520164206) do
+ActiveRecord::Schema.define(version: 20170520183310) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "context"
-    t.time     "alarm"
+    t.datetime "alarm"
     t.integer  "status"
     t.integer  "user_icon"
     t.datetime "created_at", null: false

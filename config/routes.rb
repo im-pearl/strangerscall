@@ -60,4 +60,6 @@ Rails.application.routes.draw do
   resources :posts, except: [:show] do
     post "/response", to: "responses#will_wake"
   end
+  
+  resources :users
 end
